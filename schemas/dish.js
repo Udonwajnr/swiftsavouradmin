@@ -28,6 +28,12 @@ export default {
             type: 'reference',
             to: [{type: 'category'}]
           },
+          {
+            name: 'price',
+            type: 'number',
+            title: 'price',
+            validation: rule=>rule.required().min(1)
+          },
                    
     ]
 }

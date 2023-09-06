@@ -34,6 +34,12 @@ export default {
             title: 'price',
             validation: rule=>rule.required().min(1)
           },
-                   
+          {
+            name: 'restaurant',
+            type: 'reference',
+            title: 'Restaurant',
+            to: {type: 'restaurant'}
+          }
+              
     ]
 }

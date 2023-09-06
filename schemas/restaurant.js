@@ -36,37 +36,28 @@ export default defineType({
             type: 'number',
             title: 'longitude of the restaurant',
          },
-         
           {
             name: 'rating',
             type: 'number',
             title: 'Enter a Rating number between 1 to 5',
             validation: rule=>rule.required().min(1).max(5).error('Please enter a value between 1 to 5')
           },
-
           {
             name: 'Phone',
             type: 'number',
             title: 'Phone Number',
          },
-
           {
             name: 'Delivery',
             type: 'string',
             title: 'Delivery Time',
          },
-        //  {
-        //     name: 'type',
-        //     title: 'Category',
-        //     validation: rule=> rule.required(),
-        //     type: 'reference',
-        //     to: [{type: 'category'}]
-        //   },
           {
             name: 'dishes',
             type: 'array',
             title: 'Dishes',
-            of: [{type: 'reference', to: [{type: 'dish'}]}]
+            weak:true,
+            of: [{type: 'reference', to: [{type: 'dish'}]}],       
           }
     ]
 })

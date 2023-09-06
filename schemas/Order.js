@@ -5,30 +5,38 @@ export default {
     title:"Orders",
     type:"document",
     fields:[
-        {
-            name: 'Restaurant',
-            title: 'Restaurant',
-            validation: rule=> rule.required(),
-            type: 'reference',
-            to: [{type: 'restaurant'}]
-          },
-        {
-            name: 'dish',
-            title: 'dish',
-            validation: rule=> rule.required(),
-            type: 'reference',
-            to: [{type: 'restaurant'}]
-          },
-          {
-            name: 'rating',
-            type: 'number',
-            title: 'Enter a number between 1 to 5',
-            validation: rule=>rule.required().min(1)
-          },
-          {
-            name: 'status',
-            type: 'boolean',
-            title: 'Delivery Status',
-          },
+      {
+        name:'fullName',
+        title:"FullName",
+        type:'string',
+        validation:rule=>rule.required().min(3).max(40),
+    },
+    {
+        name:'location',
+        title:"Location",
+        type:'string',
+    },
+    {
+        name:'phone',
+        title:"Phone Number",
+        type:'string',
+    },
+    {
+        name:'email',
+        title:"Email",
+        type:'string',
+        validation: rule=>rule.email()
+    },
+    {
+      name: 'dishes',
+      type: 'array',
+      title: 'Ordered Dishes',    
+      of: [{type: 'string'}] 
+    },
+    {
+        name: 'status',
+        type: 'boolean',
+        title: 'payment Status',
+      },
     ]
 }
